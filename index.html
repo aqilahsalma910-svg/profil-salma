@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta> charset="UTF-8" /=
+    <meta> name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Salma Nur Aqilah - Profil Mahassiswa Informatika</title>
+    <link href="https://fonts.googleapis.com/css2?family=playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+    <style>
+        :root {
+          --bg:         #0d0f14;
+          --surface:      #161921;
+          --border:         #2a2f3d;
+          --accent:            #c8a96e;
+          --accent:             #7e9ccc;
+          --text:                  #e8e4dc;
+          --muted:                  #8a8f9e;
+          --radius:                    #12px;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0: padding: 0; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family:  'DM Sans', sans-serif;
+            font-weight: 300;
+            line-height: 1.7;
+        }
+
+        /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1rem 3rem;
+      background: rgba(13,15,20,.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--accent);
+      letter-spacing: .04em;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: .9rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+ 
+    /* ── HERO (HOME) ── */
+    #home {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      padding: 8rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 70% 40%, rgba(200,169,110,.12) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 20% 70%, rgba(126,156,204,.10) 0%, transparent 70%);
+    }
+    .hero-grid {
+      position: relative; z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      max-width: 1100px;
+      width: 100%;
+      align-items: center;
+    }
+    .hero-text h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+    .hero-text h1 span { color: var(--accent); font-style: italic; }
+    .hero-text .tagline {
+      color: var(--muted);
+      font-size: 1rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .hero-text p { color: var(--muted); max-width: 480px; margin-bottom: 2rem; }
+    .btn {
+      display: inline-block;
+      padding: .7rem 1.8rem;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      text-decoration: none;
+      font-size: .85rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      border-radius: 4px;
+      transition: background .2s, color .2s;
+    }
+    .btn:hover { background: var(--accent); color: var(--bg); }
+ 
+    .hero-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      animation: fadeUp .8s ease both;
+    }
+    .avatar-wrap {
+      width: 90px; height: 90px;
+      border-radius: 50%;
+      border: 2px solid var(--accent);
+      overflow: hidden;
+      margin-bottom: 1.2rem;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--bg);
+      font-weight: 700;
+    }
+    .hero-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      margin-bottom: .3rem;
+    }
+    .hero-card .sub { color: var(--accent); font-size: .82rem; letter-spacing: .07em; text-transform: uppercase; margin-bottom: 1.2rem; }
+    .badge-row { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .badge {
+      background: rgba(200,169,110,.12);
+      border: 1px solid rgba(200,169,110,.25);
+      color: var(--accent);
+      font-size: .75rem;
+      padding: .25rem .7rem;
+      border-radius: 99px;
+      letter-spacing: .05em;
+    }
+ 
+    /* ── SECTION COMMON ── */
+    section { padding: 6rem 2rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-size: .78rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: .6rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      margin-bottom: 1rem;
+    }
+    .section-divider {
+      width: 48px; height: 2px;
+      background: var(--accent);
+      margin-bottom: 3rem;
+    }
+ 
+    /* ── PROFIL ── */
+    #profil { background: var(--surface); }
+    .profil-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .info-table { width: 100%; border-collapse: collapse; }
+    .info-table tr { border-bottom: 1px solid var(--border); }
+    .info-table td { padding: .8rem 0; font-size: .95rem; }
+    .info-table td:first-child { color: var(--muted); width: 42%; }
+    .info-table td:last-child { color: var(--text); font-weight: 400; }
+ 
+    .skills-block h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+    .skill-item { margin-bottom: 1rem; }
+    .skill-label { display: flex; justify-content: space-between; font-size: .85rem; margin-bottom: .35rem; }
+    .skill-label span:last-child { color: var(--accent); }
+    .skill-bar { height: 4px; background: var(--border); border-radius: 99px; overflow: hidden; }
+    .skill-bar-fill { height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent2)); border-radius: 99px; }
+ 
+    .courses { margin-top: 2rem; }
+    .courses h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+    .courses ul { list-style: none; }
+    .courses ul li {
+      padding: .5rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: .9rem;
+      color: var(--muted);
+      display: flex; align-items: center; gap: .6rem;
+    }
+    .courses ul li::before { content: "◈"; color: var(--accent); font-size: .7rem; }
+ 
+    /* ── HIGHLIGHT CARDS ── */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.8rem;
+      transition: border-color .25s, transform .25s;
+    }
+    .card:hover { border-color: var(--accent); transform: translateY(-4px); }
+    .card-icon { font-size: 1.8rem; margin-bottom: .8rem; }
+    .card h4 { font-family: 'Playfair Display', serif; font-size: 1.05rem; margin-bottom: .5rem; }
+    .card p { color: var(--muted); font-size: .88rem; }
+ 
+    /* ── KONTAK ── */
+    #kontak { background: var(--bg); }
+    .kontak-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .kontak-info p { color: var(--muted); margin-bottom: 2rem; }
+    .kontak-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
+    .kontak-list li a, .kontak-list li span {
+      display: flex; align-items: center; gap: .8rem;
+      color: var(--text);
+      text-decoration: none;
+      font-size: .95rem;
+      transition: color .2s;
+    }
+    .kontak-list li a:hover { color: var(--accent); }
+    .kontak-list .icon {
+      width: 36px; height: 36px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .9rem;
+      flex-shrink: 0;
+    }
+ 
+    /* FORM */
+    .contact-form { display: flex; flex-direction: column; gap: 1.2rem; }
+    .form-group { display: flex; flex-direction: column; gap: .4rem; }
+    .form-group label { font-size: .82rem; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: .75rem 1rem;
+      border-radius: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: .95rem;
+      outline: none;
+      transition: border-color .2s;
+      resize: vertical;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus { border-color: var(--accent); }
+    .form-group select option { background: var(--surface); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .btn-submit {
+      align-self: flex-start;
+      padding: .8rem 2rem;
+      background: var(--accent);
+      color: var(--bg);
+      border: none;
+      border-radius: 6px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: .88rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: opacity .2s;
+    }
+    .btn-submit:hover { opacity: .85; }
+ 
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 2.5rem;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: .85rem;
+    }
+    footer span { color: var(--accent); }
+ 
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-text { animation: fadeUp .7s .1s ease both; }
+ 
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.2rem; }
+      .hero-grid, .profil-grid, .kontak-grid { grid-template-columns: 1fr; }
+      .cards-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      #home { padding-top: 6rem; }
+    }
+  </style>
+</head>
+<body>
+ 
+<!-- ══════════ NAV ══════════ -->
+<nav>
+  <div class="nav-logo">Salma N.A.P.A.</div>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#profil">Profil</a></li>
+    <li><a href="#kontak">Kontak</a></li>
+  </ul>
+</nav>
+ 
+<!-- ══════════ HOME ══════════ -->
+<section id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-grid">
+    <div class="hero-text">
+      <p class="tagline">Mahasiswa Informatika · Fakultas Teknik</p>
+      <h1>Halo, saya<br><span>Salma Nur Aqilah</span><br>Putri Ardiyanto</h1>
+      <p>Mahasiswa Program Studi Informatika yang antusias di bidang pengembangan web, pemrograman, dan teknologi informasi. Siap berkembang dan berkolaborasi!</p>
+      <a href="#profil" class="btn">Lihat Profil</a>
+    </div>
+    <div class="hero-card">
+      <div class="avatar-wrap"> 
+        <img src="salma.png" alt="Foto Salma" style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+      <h3>Salma Nur Aqilah P.A.</h3>
+      <div class="sub">Informatika · Fakultas Teknik · 2024</div>
+      <div class="badge-row">
+        <span class="badge">Web Dev</span>
+        <span class="badge">Python</span>
+        <span class="badge">HTML/CSS</span>
+        <span class="badge">Algoritma</span>
+        <span class="badge">Database</span>
+        <span class="badge">UI/UX</span>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ══════════ PROFIL ══════════ -->
+<section id="profil">
+  <div class="container">
+    <p class="section-label">Tentang Saya</p>
+    <h2 class="section-title">Profil Lengkap</h2>
+    <div class="section-divider"></div>
+ 
+    <div class="profil-grid">
+      <!-- Info pribadi -->
+      <div>
+        <table class="info-table">
+          <tr>
+            <td>Nama Lengkap</td>
+            <td>Salma Nur Aqilah Putri Ardiyanto</td>
+          </tr>
+          <tr>
+            <td>NIM</td>
+            <td>2024018074</td>
+          </tr>
+          <tr>
+            <td>Program Studi</td>
+            <td>Informatika</td>
+          </tr>
+          <tr>
+            <td>Fakultas</td>
+            <td>Teknik</td>
+          </tr>
+          <tr>
+            <td>Semester</td>
+            <td>4 (Angkatan 2024)</td>
+          </tr>
+          <tr>
+            <td>Asal Kota</td>
+            <td>Sleman, Yogyakarta</td>
+          </tr>
+          <tr>
+            <td>IPK</td>
+            <td>3.85 / 4.00</td>
+        </tr>
+          <tr>
+            <td>Status</td>
+            <td><span style="color:var(--accent)">● Aktif</span></td>
+          </tr>
+        </table>
+ 
+        <div class="courses" style="margin-top:2rem;">
+          <h4>Mata Kuliah yang Diambil</h4>
+          <ul>
+            <li>Pemrograman Web</li>
+            <li>Algoritma &amp; Pemrograman</li>
+            <li>Basis Data</li>
+            <li>Matematika Diskrit</li>
+            <li>Jaringan Komputer</li>
+            <li>Sistem Operasi</li>
+          </ul>
+        </div>
+      </div>
+ 
+      <!-- Skills & tentang -->
+      <div>
+        <div class="skills-block">
+          <h4>Kemampuan Teknis</h4>
+          <div class="skill-item">
+            <div class="skill-label"><span>HTML / CSS</span><span>85%</span></div>
+            <div class="skill-bar"><div class="skill-bar-fill" style="width:85%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-label"><span>Python</span><span>75%</span></div>
+            <div class="skill-bar"><div class="skill-bar-fill" style="width:75%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-label"><span>JavaScript</span><span>60%</span></div>
+            <div class="skill-bar"><div class="skill-bar-fill" style="width:60%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-label"><span>MySQL / SQL</span><span>70%</span></div>
+            <div class="skill-bar"><div class="skill-bar-fill" style="width:70%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-label"><span>Figma / UI Design</span><span>65%</span></div>
+            <div class="skill-bar"><div class="skill-bar-fill" style="width:65%"></div></div>
+          </div>
+        </div>
+ 
+        <p style="color:var(--muted);margin-top:2rem;font-size:.92rem;line-height:1.8;">
+          Saya adalah mahasiswi Informatika yang memiliki ketertarikan besar dalam dunia <span style="color:var(--accent)">pengembangan web</span> dan <span style="color:var(--accent2)">teknologi informasi</span>. Aktif mengikuti perkuliahan, praktikum, dan terus belajar mandiri untuk mengembangkan kemampuan coding. Saya percaya bahwa teknologi bisa memberi dampak positif bagi masyarakat.
+        </p>
+      </div>
+    </div>
+ 
+    <!-- Cards -->
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-icon">🎓</div>
+        <h4>Pendidikan</h4>
+        <p>S1 Informatika Fakultas Teknik — aktif semester 4, angkatan 2024. Berasal dari Sleman, Yogyakarta.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">💻</div>
+        <h4>Proyek &amp; Tugas</h4>
+        <p>Telah menyelesaikan berbagai tugas pemrograman web, aplikasi sederhana Python, dan desain database relasional.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🌐</div>
+        <h4>Keorganisasian</h4>
+        <p>Anggota aktif <span style="color:var(--accent)">Ladies Engineering Dewantara</span> — komunitas mahasiswi teknik yang mendorong perempuan berdaya di bidang teknologi dan rekayasa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ══════════ KONTAK ══════════ -->
+<section id="kontak">
+  <div class="container">
+    <p class="section-label">Hubungi Saya</p>
+    <h2 class="section-title">Kontak</h2>
+    <div class="section-divider"></div>
+ 
+    <div class="kontak-grid">
+      <!-- Info kontak -->
+      <div class="kontak-info">
+        <p>Jangan ragu untuk menghubungi saya melalui berbagai platform di bawah ini. Saya terbuka untuk diskusi, kolaborasi, maupun pertanyaan seputar perkuliahan.</p>
+        <ul class="kontak-list">
+          <li>
+            <span>
+              <span class="icon">📧</span>
+              <a href=""mailto : aqilahsalma84@gmail.com">aqilahsalma84@gmail.com</a>
+            </span>
+          </li>
+          <li>
+            <a href="https://wa.me/62895363131329" target="_blank">
+              <span class="icon">📱</span>
+              +62 895-3631-31329 (WhatsApp)
+            </a>
+          </li>
+          <li>
+            <a href="https://instagram.com/salmaaa.aqilah" target="_blank">
+              <span class="icon">📸</span>
+            @salmaaa.aqilah
+            </a>
+          </li>
+          <li>
+            <a href="https://linkedin.com/in/salmanuraqilahputriardiyanto" target="_blank">
+              <span class="icon">💼</span>
+              linkedin.com/in/salmanuraqilahputriardiyanto
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/salmanuraqilah" target="_blank">
+              <span class="icon">🐙</span>
+              github.com/salmanuraqilah
+            </a>
+          </li>
+          <li>
+            <span>
+              <span class="icon">📍</span>
+              Sleman, Yogyakarta, Indonesia
+            </span>
+          </li>
+        </ul>
+      </div>
+ 
+      <!-- Form -->
+      <div>
+        <div class="contact-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nama">Nama</label>
+              <input type="text" id="nama" placeholder="Nama kamu" />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" placeholder="email@contoh.com" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="subjek">Subjek</label>
+            <select id="subjek">
+              <option value="">-- Pilih Subjek --</option>
+              <option>Kolaborasi Proyek</option>
+              <option>Diskusi Tugas</option>
+              <option>Pertanyaan Umum</option>
+              <option>Lainnya</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="pesan">Pesan</label>
+            <textarea id="pesan" rows="5" placeholder="Tulis pesanmu di sini..."></textarea>
+          </div>
+          <button class="btn-submit" onclick="handleSubmit()">Kirim Pesan →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <p>© 2024 <span>Salma Nur Aqilah Putri Ardiyanto</span> · Mahasiswa Informatika · </p>
+</footer>
+ 
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Smooth active nav highlight
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 120) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--accent)' : '';
+    });
+  });
+ 
+  // Form submit
+  function handleSubmit() {
+    const nama  = document.getElementById('nama').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const pesan = document.getElementById('pesan').value.trim();
+    if (!nama || !email || !pesan) {
+      alert('Mohon lengkapi semua field yang diperlukan.');
+      return;
+    }
+    alert(`Terima kasih, ${nama}! Pesan kamu telah diterima. Saya akan segera membalas via ${em 
